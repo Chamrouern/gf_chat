@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBTwgH63N0JfVzoUCWkEWqQO0jzNigPjlo",
+        authDomain: "gf-chat.firebaseapp.com",
+        databaseURL: "https://gf-chat.firebaseio.com",
+        storageBucket: "gf-chat.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="assets/js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  </head>
+    <div class="container well">
+      <h1>Let's play chat with <span id="name"></span></h1>
+      <a class="btn-success" href="views/home.html">Go home</a> 
+    </div>  
+  </body>
+</html>
