@@ -1,158 +1,147 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBTwgH63N0JfVzoUCWkEWqQO0jzNigPjlo",
-        authDomain: "gf-chat.firebaseapp.com",
-        databaseURL: "https://gf-chat.firebaseio.com",
-        storageBucket: "gf-chat.appspot.com",
-      };
-      firebase.initializeApp(config);
-      </script>
-      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/footer-distributed-with-contact-form.css">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-      <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-      <link href="assets/css/logo-nav.css" rel="stylesheet">
-      <link href="assets/css/sidebar.css" rel="stylesheet">
-      <script src="assets/js/jquery.js"></script>
-      <script src="assets/js/bootstrap.min.js"></script>
-      <script src="assets/js/asidebar.jquery.js"></script>
-   </head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+       <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+       <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
 
-   <body>
-   <!-- header menu -->  
-   <div class="container-fluid">   
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                    <a href="http://localhost:5000" 
-                    class="navbar-brand">FG-Chat</a>
-                    </li>
-                 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="http://localhost:5000/views/register.html"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                  </li>
-              </ul>
-            </div>
-        </div>
-    </nav>
-<nav class="navbar navbar-fixed" role="navigation">
-  <ul class="nav navbar-nav">
-    
-      <a href="#" onclick="$('.aside').asidebar('open')"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></a>
-       
-  </ul>
-       <div class="col-md-6">
-                      <div id="custom-search-input">
-                          <div class="input-group col-md-10" style="margin-left:50%">
-                              <input type="text" class="form-control input-lg" placeholder="Search here" />
-                              <span class="input-group-btn">
-                             <button class="btn btn-info btn-lg" type="button">
-                                      <i class="fa fa-search" aria-hidden="true"></i>
-                             </button>
-                      </span>
-                </div>
-           </div>
-     </div>
-</nav>
-<div class="jquery-script-ads">
- <!-- side bar menu -->
-    <div class="aside">
-      <div class="aside-header">
-        FG-Chat
-        <span class="close" data-dismiss="aside" aria-hidden="true">&times;</span>
-      </div>
-      <div class="aside-contents">
-        <ul class="list-group list-group-flush">
-          <a><li class="list-group-item"><i class="fa fa-female" aria-hidden="true"></i> Freebice</li></a>
-          <a><li class="list-group-item"><i class="fa fa-gift" aria-hidden="true"></i> Gift</li></a>
-          <a><li class="list-group-item"><i class="fa fa-question" aria-hidden="true"></i> Q&A</li></a>
-           <a><li class="list-group-item"><i class="fa fa-search" aria-hidden="true"></i></i> Search</li></a>
-        </ul>
-        <div class="card-block">
-          <a href="#" class="card-link">Let Play Chat with me !</a>
-        </div>
-      </div>
-    </div>
-    <div class="aside-backdrop"></div>
+       <link href="css/bootstrap.min.css" rel="stylesheet">
+       <script type="text/javascript" src="js/shared/angular.min.js"></script>
+       <script type="text/javascript" src="js/shared/jquery-3.0.0.min.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+       <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.0.2/angularfire.min.js">
+       </script>
+       <script src="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.js"></script>
+       <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.4/firebase-ui-auth.css"/>
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+       <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-md5/0.1.10/angular-md5.min.js"></script> -->
+       <script type="text/javascript" src="js/app.js"></script>
+       <script type="text/javascript" src="js/services/auth.service.js"></script>
+       <script type="text/javascript" src="js/controllers/auth.controller.js"></script>   
+       <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+       <script type="text/javascript" src="js/controller/actiongeneral.controller.js"></script>  
+  </head>
+  <body ng-app="chatApp">
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header navbar-fixed-top">
+          <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">FG-Chat</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+              <a class="mdl-navigation__link" href=""><div class="material-icons mdl-badge mdl-badge--overlap" data-badge="98">face</div></a>
+              <a class="mdl-navigation__link" href="#"><div class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">account_box</div> </a>
+              <div class="dropdown">
+                <a class="mdl-navigation__link "><img class="mdl-chip__contact" src="img/photo.jpg"></img></a>
+                <div class="dropdown-content" >
+                    <a ui-sref="profile">Profile</a>
+                    <a ui-sref="#">Singout</a>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript" src="assets/js/asidebar.jquery.js"></script>
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-36251023-1']);
-      _gaq.push(['_setDomainName', 'jqueryscript.net']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-   </script>
-   <!--  content here -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Post Example 
-                    <small>Freebice hot news</small>
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <img class="img-responsive" src="http://placehold.it/750x500" alt="">
-            </div>
-              <div class="col-sm-4">
-                <div class="card card-block">
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                      <a href="#"><i class="fa fa-github"></i></a>
                 </div>
               </div>
-  <!-- footer -->
-    <footer class="footer-distributed col-md-12">
-
-      <div class="footer-left">
-
-        <h3>FG-<span>chat</span></h3>
-
-        <p class="footer-links">
-          <a href="#">Home</a>
-          ·
-          <a href="#">About</a>
-          ·
-          <a href="#">Contact</a>
-        </p>
-
-        <p class="footer-company-name">FG-chat &copy; 2016</p>
-
-        <div class="footer-icons">
-
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-github"></i></a>
-
+              <div class="dropdown">
+                <a class="mdl-navigation__link ">Sign in</a>
+                <div class="dropdown-content" >
+                      <a ui-sref="login">Login</a>
+                      <a ui-sref="register">Register</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <div class="mdl-layout__drawer">
+        <div class="demo-card-square mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">FG-chat</h2>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" ui-sref="home">Home</a>
+            <a class="mdl-navigation__link" ui-sref="gift">Gift</a>
+            <a class="mdl-navigation__link" ui-sref="freebie">Freebie</a>
+            <a class="mdl-navigation__link" ui-sref="home">Search</a>
+          </nav>
         </div>
       </div>
-    </footer>
-  </body>
-</html>
+      <!-- content on navigation bar  -->
+        <main class="mdl-layout__content">
+          <div class="page-content">            
+          <div class="demo-list-action mdl-list">
+            <div class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <a ui-sref="chat"><span>Gu Hai</span></a>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+            </span>
+            </div>
+            <div class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Bai Lou Yin</span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+            </span>
+            </div>
+            <div class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Qu Meng</span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+            </span>
+            </div>
+            <div class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Bob Odenkirk</span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+            </span>
+            </div>
+            <div class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Bob Odenkirk</span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+            </span>
+            </div>
+            <div class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>KaKa</span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+            </span>
+            </div>
+            <div class="mdl-list__item">
+              <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Mo Mo</span>
+              </span>
+              <span class="mdl-list__item-secondary-content">
+                <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+            </span>
+            </div>
+          </div>
+           </div>
+        </main>
+      </div>
+      </div>
+         <ui-view>
+
+         </ui-view>
+      <div ng-include="'/views/templates/footer.html'"></div>
+
