@@ -19,9 +19,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'views/auth/register.html',
       })
+      .state('chatbox', {
+        url: '/chatbox',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'views/chat/chatbox.html',
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/auth/login.html',
+      })
+          .state('profile', {
+        url: '/profile',
+        templateUrl: 'views/auth/profile.html',
       })
           .state('gift', {
         url: '/gift',
@@ -30,10 +39,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
            .state('freebie', {
         url: '/freebie',
         templateUrl: 'views/post/freebie.html',
-      })
-          .state('chat', {
-        url: '/chat',
-        templateUrl: 'views/chat/chat.html',
       })
       	$urlRouterProvider.otherwise('/');
        })
