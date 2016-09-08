@@ -45,18 +45,12 @@
 			    background-color: #3e8e41;
 			}
 
-			/*chat*/
-
-		  .main {
-		    max-width: 320px;
-		    margin: 0 auto;
-		  }
 		  .login-or {
 		    position: relative;
 		    font-size: 18px;
 		    color: #aaa;
 		    margin-top: 10px;
-		            margin-bottom: 10px;
+		    margin-bottom: 10px;
 		    padding-top: 10px;
 		    padding-bottom: 10px;
 		  }
@@ -204,6 +198,12 @@
             border-color: #adadad;
             width: 33.3%;
            
+        }
+        li:hover{
+            background: #fff;
+        }
+        a{
+            color:#222;
         }
 
 
