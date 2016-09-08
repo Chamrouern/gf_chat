@@ -60,6 +60,19 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       .state('profile', {
         url: '/profile',
         templateUrl: 'views/auth/profile.html',
+        controller: 'ProfileCtrl as profileCtrl',
+        resolve: {
+          auth: function($state, Users, Auth) {
+            return Auth.$requireSignIn().catch(function() {
+              $state.go('home');
+            });
+          },
+          profile: function(Users, Auth) {
+            return Auth.$requireSignIn().then(function(auth) {
+              return Users.getProfile(auth.uid).$loaded();
+            });
+          }
+        }
       })
       .state('gift', {
         url: '/gift',
