@@ -38,6 +38,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
       }
       })
+      .state('chatbox', {
+        url: '/chatbox',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'views/chat/chatbox.html',
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/auth/login.html',
@@ -52,6 +57,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
       }
       })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'views/auth/profile.html',
+      })
       .state('gift', {
         url: '/gift',
         controller: 'AuthCtrl as authCtrl',
@@ -60,10 +69,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
            .state('freebie', {
         url: '/freebie',
         templateUrl: 'views/post/freebie.html',
-      })
-          .state('chat', {
-        url: '/chat',
-        templateUrl: 'views/chat/chat.html',
       })
       	$urlRouterProvider.otherwise('/');
        })
