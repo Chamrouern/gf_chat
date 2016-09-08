@@ -19,28 +19,39 @@
        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
        <script type="text/javascript" src="js/app.js"></script>
        <script type="text/javascript" src="js/services/auth.service.js"></script>
-       <script type="text/javascript" src="js/controllers/auth.controller.js"></script>   
-       <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+       <script type="text/javascript" src="js/controllers/auth.controller.js"></script>    
+       <script type="text/javascript" src="js/controllers/header.controller.js"></script>   
+      <link rel="stylesheet" type="text/css" href="css/mainstyle.css"> 
   </head>
   <body ng-app="chatApp">
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="padding-top:60px;">
-        <header class="mdl-layout__header navbar-fixed-top" style="background: #ff704d">
+        <header class="mdl-layout__header navbar-fixed-top" ng-controller="headerPage as data" style="background: #ff704d">
           <div class="mdl-layout__header-row" style="background: #ff604d">
             <span class="mdl-layout-title">FG-Chat</span>
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-              <a class="mdl-navigation__link" href=""><div class="material-icons mdl-badge mdl-badge--overlap" data-badge="98">face</div></a>
-              <a class="mdl-navigation__link" href="#"><div class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">account_box</div> </a>
-              <div class="dropdown">
-                <a class="mdl-navigation__link "><img class="mdl-chip__contact" src="img/photo.jpg"></img></a>
+              <a class="mdl-navigation__link" href=""  ng-show="firebaseUser">
+                <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="98">
+                face
+                </div>
+              </a>
+              <a class="mdl-navigation__link" href="#" ng-show="firebaseUser">
+                <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">
+                  account_box
+                </div>
+              </a>
+              <div class="dropdown" ng-show="firebaseUser">
+                <a class="mdl-navigation__link ">
+                  <img class="mdl-chip__contact" src="img/photo.jpg"/>
+                  <span>User Name</span>
+                </a>
                 <div class="dropdown-content" >
                     <a ui-sref="profile">Profile</a>
-                    <a ui-sref="#">Singout</a>
-
+                    <a ng-click="auth.$signOut()">Signout</a>
                 </div>
               </div>
-              <div class="dropdown">
-                <a class="mdl-navigation__link ">Sign in</a>
+              <div class="dropdown"  ng-hide="firebaseUser">
+                <a class="mdl-navigation__link">Sign in</a>
                 <div class="dropdown-content" >
                       <a ui-sref="login">Login</a>
                       <a ui-sref="register">Register</a>
@@ -49,7 +60,7 @@
             </nav>
           </div>
         </header>
-        <div class="mdl-layout__drawer">
+    <div class="mdl-layout__drawer">
         <div class="demo-card-square mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title mdl-card--expand">
           <h2 class="mdl-card__title-text">FG-chat</h2>
@@ -68,14 +79,14 @@
           <div class="page-content">       
           </div>
         </main>
-      </div>
+    </div>
+</div>
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="hold">
       <div class="col-sm-2 sidenav sidebar">        
       </div>
          <ui-view>
-
          </ui-view>
          <!-- sidebar right -->
       <div class="col-sm-2 sidenav sidebar">

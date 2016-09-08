@@ -8,16 +8,35 @@
   firebase.initializeApp(config);
 
 var app = angular.module("chatApp", ["firebase",'ui.router']);
-app.config(function ($stateProvider, $urlRouterProvider) {  
+app.config(function ($stateProvider, $urlRouterProvider) { 
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'views/post/home.html',
+        resolve: {
+           requireNoAuth : function(Auth,$state){ 
+           return Auth.$requireSignIn().then(function(auth){
+            $state.go('gift');
+          },function(error){
+            return;
+          });
+        }
+      }
       })
       .state('register', {
         url: '/register',
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'views/auth/register.html',
+        controller: 'AuthCtrl as authCtrl',
+        resolve: {
+           requireNoAuth : function(Auth,$state){ 
+           return Auth.$requireSignIn().then(function(auth){
+            $state.go('gift');
+        },function(error){
+            return;
+          });
+        }
+      }
       })
       .state('chatbox', {
         url: '/chatbox',
@@ -27,14 +46,25 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       .state('login', {
         url: '/login',
         templateUrl: 'views/auth/login.html',
+        controller: 'AuthCtrl as authCtrl',
+        resolve: {
+           requireNoAuth : function(Auth,$state){   
+           return Auth.$requireSignIn().then(function(auth){
+            $state.go('gift');
+          },function(error){
+            return;
+          });
+        }
+      }
       })
-          .state('profile', {
+      .state('profile', {
         url: '/profile',
         templateUrl: 'views/auth/profile.html',
       })
-          .state('gift', {
+      .state('gift', {
         url: '/gift',
-        templateUrl: 'views/post/gift.html',
+        controller: 'AuthCtrl as authCtrl',
+        templateUrl: 'views/post/gift.html'
       })
            .state('freebie', {
         url: '/freebie',
