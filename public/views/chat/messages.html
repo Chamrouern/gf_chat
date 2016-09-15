@@ -1,0 +1,44 @@
+<div class="col-sm-8">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+       <br><br> 
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+              <h4>{{ messagesCtrl.teamName }}</h4>
+              <p>{{ messagesCtrl.teamDescription }}</p>
+          </div>
+          <div class="panel-body">
+          <ul class="chat" ng-repeat="message in messagesCtrl.messages">
+            <li class="right clearfix">
+              <span class="chat-img pull-left">
+                  <img ng-src="{{ teamsCtrl.getGravatar(message.uid) }}" class="img-circle" style="width:100px;height:100px;" />
+              </span>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <small class=" text-muted pull-right">
+                    <span class="glyphicon glyphicon-time"></span>
+                    {{ message.timestamp | date:'short' }}
+                    </small>
+                  <strong class="pull-left">{{ teamsCtrl.getDisplayName(message.uid) }}</strong>
+                </div>
+                <p>{{ message.body }}</p>
+              </div>
+            </li>
+          </ul>
+          </div>
+          <div class="panel-footer">
+            <form class="message-form" ng-submit="messagesCtrl.sendMessage()">
+              <div class="input-group">
+                <input type="text" class="form-control" ng-model="messagesCtrl.message" placeholder="Type a message...">
+                <span class="input-group-btn">
+                  <button class="btn btn-success" type="submit">Send</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

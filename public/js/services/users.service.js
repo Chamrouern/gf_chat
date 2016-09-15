@@ -1,6 +1,6 @@
-app.factory('Users', function($firebaseArray, $firebaseObject, FirebaseUrl) {
-		var usersRef = new Firebase(FirebaseUrl+'users');
-		var connectedRef = new Firebase(FirebaseUrl+'.info/connected');
+app.factory('Users', function($firebaseArray, $firebaseObject) {
+		var usersRef = firebase.database().ref("users");
+		var connectedRef = firebase.database().ref(".info/connected");
 		var users = $firebaseArray(usersRef);
 		var Users = {
 			getProfile: function(uid) {
@@ -9,8 +9,11 @@ app.factory('Users', function($firebaseArray, $firebaseObject, FirebaseUrl) {
 			getDisplayName: function(uid) {
 				return users.$getRecord(uid).displayName;
 			},
+			getAddress:function(uid){
+				return users.$getRecord(uid).Address;
+			},
 			getGravatar: function(uid) {
-				return '//www.gravatar.com/avatar/' + users.$getRecord(uid);
+				return 'http://www.bongthom.com/Clients/4425/Images/RUC.gif';
 			},
 			setOnline: function(uid){
 			  var connected = $firebaseObject(connectedRef);

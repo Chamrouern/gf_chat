@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Welcome to GF-Chat</title>
        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
        <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
@@ -20,9 +20,13 @@
        <script type="text/javascript" src="js/app.js"></script>
        <script type="text/javascript" src="js/services/auth.service.js"></script>
        <script type="text/javascript" src="js/controllers/auth.controller.js"></script>    
-       <script type="text/javascript" src="js/controllers/header.controller.js"></script>   
        <script type="text/javascript" src="js/services/users.service.js"></script>   
-       <script type="text/javascript" src="js/controllers/profile.controller.js"></script>   
+       <script type="text/javascript" src="js/controllers/profile.controller.js"></script> 
+       <script type="text/javascript" src="js/controllers/header.controller.js"></script>
+       <script type="text/javascript" src="js/services/teams.service.js"></script>
+       <script type="text/javascript" src="js/controllers/team.controller.js"></script>
+       <script type="text/javascript" src="js/services/messages.service.js"></script>
+       <script type="text/javascript" src="js/controllers/messages.controller.js"></script>        
       <link rel="stylesheet" type="text/css" href="css/mainstyle.css"> 
   </head>
   <body ng-app="chatApp">
@@ -45,11 +49,11 @@
               <div class="dropdown" ng-show="firebaseUser">
                 <a class="mdl-navigation__link ">
                   <img class="mdl-chip__contact" src="img/photo.jpg"/>
-                  <span>User Name</span>
+                  <span>{{userName}}</span>
                 </a>
                 <div class="dropdown-content" >
                     <a ui-sref="profile">Profile</a>
-                    <a ng-click="auth.$signOut()">Signout</a>
+                    <a ng-click="logout()">Signout</a>
                 </div>
               </div>
               <div class="dropdown"  ng-hide="firebaseUser">
@@ -75,53 +79,9 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="hold">
-      <div class="col-sm-2 sidenav sidebar">        
-      </div>
          <ui-view>
          </ui-view>
-         <!-- sidebar right -->
-      <div class="col-sm-2 sidenav sidebar" ng-controller="headerPage as data">
-          <ul class="demo-list-control mdl-list" ng-show="firebaseUser">
-              <p>Group</p>
-                 <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                <i class="material-icons ">group  </i>
-                <a ui-sref="chatbox">Freebise play</a>
-              </span>
-            </li>
-                  <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                <i class="material-icons">  create</i>
-                <a ui-sref="chatbox">Create New </a>
-              </span>
-            </li>
-
-            <p>__________________________</p>
-            <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                <i class="material-icons ">    person</i>
-                <a ui-sref="chatbox">sokheng sou</a>
-              </span>
-                <span class="mdl-list__item-primary-content">
-                  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1">
-                    <input type="radio" id="list-option-1" class="mdl-radio__button" name="options" value="1" checked />
-                  </label>
-              </span>
-            </li>
-                 <li class="mdl-list__item">
-              <span class="mdl-list__item-primary-content">
-                <i class="material-icons  ">person   </i>
-                <a ui-sref="chatbox">bora  vet</a>
-              </span>
-                <span class="mdl-list__item-primary-content">
-                  <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-1">
-                    <input type="radio" id="list-option-1" class="mdl-radio__button" name="options" value="1" checked />
-                  </label>
-              </span>
-            </li>
-        </ul>       
-        </div>
-     </div>
+    </div>
   </div>
 </div>
 <div ng-include="'/views/templates/footer.html'"></div>
