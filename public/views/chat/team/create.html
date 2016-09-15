@@ -1,0 +1,31 @@
+<div class="col-sm-8">
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <form ng-submit="teamsCtrl.createTeam()">
+                <h2>Create Team Name</h2>
+                <div class="form-group">
+                    <label for="teamName" class="col-sm-3 control-label">Team Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="teamName" placeholder="Team Name" class="form-control" 
+                        ng-model="teamsCtrl.newTeam.name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-sm-3 control-label">Team Description</label>
+                    <div class="col-sm-9">
+                       <textarea  id="description" class="form-control" rows="3" required="required" placeholder="Team Description" ng-model="teamsCtrl.newTeam.discription"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <input type="submit" class="btn btn-success" value="Create Team">
+                    </div>
+                </div>
+            </form> <!-- /form -->
+            </div>
+        </div> <!-- ./container -->
+    </div>
+ </div>
+   <!-- content center end -->

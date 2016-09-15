@@ -7,7 +7,7 @@
   };
   firebase.initializeApp(config);
 
-var app = angular.module("chatApp", ["firebase",'ui.router']);
+var app = angular.module("chatApp", ['firebase','ui.router']);
 app.config(function ($stateProvider, $urlRouterProvider) { 
     $stateProvider
       .state('home', {
@@ -16,7 +16,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         resolve: {
            requireNoAuth : function(Auth,$state){ 
            return Auth.$requireSignIn().then(function(auth){
-            $state.go('gift');
+            $state.go('teams');
           },function(error){
             return;
           });
@@ -31,17 +31,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         resolve: {
            requireNoAuth : function(Auth,$state){ 
            return Auth.$requireSignIn().then(function(auth){
-            $state.go('gift');
+            $state.go('home');
         },function(error){
             return;
           });
         }
       }
-      })
-      .state('chatbox', {
-        url: '/chatbox',
-        controller: 'AuthCtrl as authCtrl',
-        templateUrl: 'views/chat/chatbox.html',
       })
       .state('login', {
         url: '/login',
@@ -50,12 +45,73 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         resolve: {
            requireNoAuth : function(Auth,$state){   
            return Auth.$requireSignIn().then(function(auth){
-            $state.go('gift');
+            $state.go('home');
           },function(error){
             return;
           });
         }
       }
+      })
+       .state('teams', {
+        url: '/teams',
+        controller: 'TeamsCtrl as teamsCtrl',
+        templateUrl: 'views/chat/index.html',
+        resolve: {
+          teams: function (Teams){
+            return Teams.$loaded();
+          },
+          profile: function ($state, Auth, Users){
+            return Auth.$requireSignIn().then(function(auth){
+              return Users.getProfile(auth.uid).$loaded().then(function (profile){
+                return profile;
+              });
+            }, function(error){
+              $state.go('home');
+            });
+          }
+        }
+      })
+      .state('teams.create', {
+        url: '/create',
+        templateUrl: 'views/chat/team/create.html',
+        controller: 'TeamsCtrl as teamsCtrl'
+      })
+      .state('teams.messages', {
+        url: '/{teamsId}/messages',
+        templateUrl: 'views/chat/messages.html',
+        controller: 'MessagesCtrl as messagesCtrl', 
+        resolve: {
+          messages: function($stateParams, Messages){
+            return Messages.forChannel($stateParams.teamsId).$loaded();
+          },
+          teamName: function($stateParams, teams){
+            return '#'+teams.$getRecord($stateParams.teamsId).name;
+          },
+          teamDescription:function($stateParams, teams){
+            return teams.$getRecord($stateParams.teamsId).discription;
+          }
+        }
+        
+      })
+      .state('teams.direct', {
+        url: '/{uid}/messages/direct',
+        templateUrl: 'views/chat/messages.html',
+        controller: 'MessagesCtrl as messagesCtrl',
+        resolve: {
+          messages: function($stateParams, Messages, profile){
+            return Messages.forUsers($stateParams.uid, profile.$id).$loaded();
+          },
+          teamName: function($stateParams, Users){
+            return Users.all.$loaded().then(function(){
+              return '@'+Users.getDisplayName($stateParams.uid);
+            });
+          },
+          teamDescription: function($stateParams, Users){
+            return Users.all.$loaded().then(function(){
+              return '*@*Live in '+Users.getAddress($stateParams.uid)+" *@*";
+            });
+          }
+        }
       })
       .state('profile', {
         url: '/profile',
@@ -79,7 +135,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'views/post/gift.html'
       })
-           .state('freebie', {
+      .state('freebie', {
         url: '/freebie',
         templateUrl: 'views/post/freebie.html',
       })
