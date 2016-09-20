@@ -2,7 +2,6 @@
             .row.content {height: 450px}
             .sidenav {
               padding-top: 20px;
-              height: 1000px;
             }  
     
 			.dropbtn {
@@ -204,6 +203,7 @@
         }
         a{
             color:#222;
+            cursor: pointer;
         }
 
 
