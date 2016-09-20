@@ -5,12 +5,14 @@
 		teamCtrl.getDisplayName = Users.getDisplayName;
 		teamCtrl.getGravatar = Users.getGravatar;
 		teamCtrl.users = Users.all;
-		Users.setOnline(profile.$id);
+		Users.setOnline(profile.$id);	
 		teamCtrl.newTeam = {
 			name: '',
-			discription: ''
+			discription: '',
+			member: []	
 		};
 		teamCtrl.createTeam = function(){
+			teamCtrl.newTeam.member.push(profile.$id);
 		 teamCtrl.teams.$add(teamCtrl.newTeam).then(function(ref){
 		    $state.go('teams.messages', {teamsId: ref.key});
 		  });

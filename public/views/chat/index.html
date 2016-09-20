@@ -1,4 +1,4 @@
-<div class="col-sm-2 sidenav sidebar"></div>
+<div class="col-sm-2 sidenav"></div>
  <div class="col-sm-8">
      <div class="container">
      	  <ui-view></ui-view>
@@ -9,7 +9,7 @@
       <ul class="demo-list-control mdl-list">
             <div class="list-head"><h4>Group Messages</h4></div>
               <div class="teams" ng-repeat="teams in teamsCtrl.teams">
-                  <li class="mdl-list__item">
+                  <li class="mdl-list__item" ng-repeat="member in teams.member" ng-if="member == teamsCtrl.profile.$id">
                     <span class="mdl-list__item-primary-content">
                       <i class="material-icons ">group</i>
                       <a  title ="{{ teams.discription }}" ui-sref="teams.messages({teamsId: teams.$id})" ui-sref-active="selected"> {{ teams.name }}</a>
@@ -30,13 +30,12 @@
                 <span class="mdl-list__item-primary-content">
                   <i class="material-icons ">person</i>
                   <a ui-sref="teams.direct({uid: user.$id})" ui-sref-active="selected">{{ user.displayName }}</a>
-                  <span class="presence" ng-class="{online: user.online}"></span>
                 </span>
                   <span class="mdl-list__item-primary-content">
-                    <img ng-hide = "true" src="img/offline.png">
-                    <img ng-show="true" src="img/online.png">
+                    <img ng-hide = "user.online" src="img/offline.png" class="img-circle">
+                    <img ng-show="user.online" src="img/online.png" class="img-circle">
                 </span>
               </li>
             </div>      
-        </ul>       
+        </ul>  
 </div>

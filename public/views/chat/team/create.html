@@ -17,7 +17,16 @@
                        <textarea  id="description" class="form-control" rows="3" required="required" placeholder="Team Description" ng-model="teamsCtrl.newTeam.discription"></textarea>
                     </div>
                 </div>
-                
+                <div class="form-group">
+                    <label for="teamName" class="col-sm-3 control-label">Invite Friends</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" ng-model="teamsCtrl.newTeam.member" multiple>
+                            <option  ng-repeat="user in teamsCtrl.users" ng-if="user.$id !== teamsCtrl.profile.$id" value="{{user.$id}}" >
+                                {{ user.displayName }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
                         <input type="submit" class="btn btn-success" value="Create Team">
