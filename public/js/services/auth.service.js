@@ -1,5 +1,4 @@
-	app.factory('Auth', function($firebaseAuth, FirebaseUrl) {
-		var ref = new Firebase(FirebaseUrl);
+	app.factory('Auth', function($firebaseAuth) {
 		var auth = $firebaseAuth(firebase.auth());
 		return auth;
 	});

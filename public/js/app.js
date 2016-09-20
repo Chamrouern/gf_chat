@@ -115,7 +115,47 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       })
       .state('profile', {
         url: '/profile',
-        templateUrl: 'views/auth/profile.html',
+        templateUrl: function() {
+              return 'views/users/profile.html?' + +new Date();
+            },
+        controller: 'ProfileCtrl as profileCtrl',
+        resolve: {
+          auth: function($state, Users, Auth) {
+            return Auth.$requireSignIn().catch(function() {
+              $state.go('home');
+            });
+          },
+          profile: function(Users, Auth) {
+            return Auth.$requireSignIn().then(function(auth) {
+              return Users.getProfile(auth.uid).$loaded();
+            });
+          }
+        }
+      })
+      .state('edit',{
+        url: '/profile/edit',
+        templateUrl: function() {
+              return 'views/users/edit.html?' + +new Date();
+            },
+        controller: 'ProfileCtrl as profileCtrl',
+        resolve: {
+          auth: function($state, Users, Auth) {
+            return Auth.$requireSignIn().catch(function() {
+              $state.go('home');
+            });
+          },
+          profile: function(Users, Auth) {
+            return Auth.$requireSignIn().then(function(auth) {
+              return Users.getProfile(auth.uid).$loaded();
+            });
+          }
+        }
+      })
+      .state('changePassword',{
+        url: '/profile/changePassword',
+        templateUrl: function() {
+              return 'views/users/changePassword.html?' + +new Date();
+            },
         controller: 'ProfileCtrl as profileCtrl',
         resolve: {
           auth: function($state, Users, Auth) {

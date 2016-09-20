@@ -15,6 +15,9 @@ app.factory('Users', function($firebaseArray, $firebaseObject) {
 			getGravatar: function(uid) {
 				return 'http://www.bongthom.com/Clients/4425/Images/RUC.gif';
 			},
+			updateProfile: function(uid,userData){
+				return usersRef.child(uid).update(userData);
+			},
 			setOnline: function(uid){
 			  var connected = $firebaseObject(connectedRef);
 			  var online = $firebaseArray(usersRef.child(uid+'/online'));
