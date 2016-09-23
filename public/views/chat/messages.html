@@ -16,9 +16,13 @@
               </span>
               <div class="chat-body clearfix">
                 <div class="header">
-                  <small class=" text-muted pull-right">
+                <small class=" text-muted pull-right">
                     <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                     {{ message.timestamp | date:'short' }}
+                          <span ng-if="messagesCtrl.Auth.uid == message.uid">
+                              <button ng-click ="messagesCtrl.delectMessage(message.$id)">
+                              <i class="fa fa-trash"></i></button>
+                         </span>
                     </small>
                   <strong class="pull-left">{{ teamsCtrl.getDisplayName(message.uid) }}</strong>
                 </div>

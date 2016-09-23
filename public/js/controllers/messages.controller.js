@@ -1,5 +1,6 @@
-	app.controller('MessagesCtrl', function(profile, teamName, teamDescription, messages) {
+	app.controller('MessagesCtrl', function(Auth,profile, teamName, teamDescription, messages) {
 		var messagesCtrl = this;
+		messagesCtrl.Auth = Auth.$getAuth();
 		messagesCtrl.messages = messages;
 		messagesCtrl.teamName = teamName;
 		messagesCtrl.teamDescription = teamDescription;
@@ -14,5 +15,9 @@
 		      messagesCtrl.message = '';
 		    });
 		  }
+		
 		};
+		  messagesCtrl.delectMessage = function(item){		  	
+            messagesCtrl.messages.$remove(item);
+		  };
 	});
