@@ -55,7 +55,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
        .state('teams', {
         url: '/teams',
         controller: 'TeamsCtrl as teamsCtrl',
-        templateUrl: 'views/chat/index.html',
+        templateUrl: function() {
+              return 'views/chat/index.html?' + +new Date();
+            },
         resolve: {
           teams: function (Teams){
             return Teams.$loaded();
@@ -73,12 +75,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       })
       .state('teams.create', {
         url: '/create',
-        templateUrl: 'views/chat/team/create.html',
+        templateUrl: function() {
+              return 'views/chat/team/create.html?' + +new Date();
+            },
         controller: 'TeamsCtrl as teamsCtrl'
       })
       .state('teams.messages', {
         url: '/{teamsId}/messages',
-        templateUrl: 'views/chat/messages.html',
+        templateUrl:  function() {
+              return 'views/chat/messages.html?' + +new Date();
+            },
         controller: 'MessagesCtrl as messagesCtrl', 
         resolve: {
           messages: function($stateParams, Messages){
@@ -95,7 +101,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       })
       .state('teams.direct', {
         url: '/{uid}/messages/direct',
-        templateUrl: 'views/chat/messages.html',
+        templateUrl: function() {
+              return 'views/chat/messages.html?' + +new Date();
+            },
         controller: 'MessagesCtrl as messagesCtrl',
         resolve: {
           messages: function($stateParams, Messages, profile){
