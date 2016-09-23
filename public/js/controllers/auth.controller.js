@@ -1,4 +1,4 @@
-	app.controller('AuthCtrl', function(Auth, $state) {
+	app.controller('AuthCtrl', function(Auth,Users, $state) {
 		var authCtrl = this;
 		var usersRef = firebase.database().ref("users");
 		authCtrl.user = {
@@ -8,6 +8,38 @@
 			lastName: '',
 			address: '',
 			gender: ''
+		};
+		authCtrl.loginGoogle = function(){
+			Auth.$signInWithPopup('google').then(function(auth){
+				if (Users.all.$indexFor(auth.user.uid) == -1) {
+					usersRef.child(auth.user.uid).set({
+					FirstName:"",
+					LastName:"",
+					Address:"",
+					Gender:"",
+					displayName: auth.user.displayName
+				})
+				}
+				$state.go('home');
+			}, function(error) {
+				authCtrl.error = error;
+			});	
+		};
+		authCtrl.loginFacebook = function(){
+			Auth.$signInWithPopup('facebook').then(function(auth){
+				if (Users.all.$indexFor(auth.user.uid) == -1) {
+				usersRef.child(auth.user.uid).set({
+					FirstName:"",
+					LastName:"",
+					Address:"",
+					Gender:"",
+					displayName: auth.user.displayName
+				})
+			}
+				$state.go('home');
+			}, function(error) {
+				authCtrl.error = error;
+			});	
 		};
 		authCtrl.login = function() {
 			Auth.$signInWithEmailAndPassword(authCtrl.user.email,authCtrl.user.password).then(function(auth) {

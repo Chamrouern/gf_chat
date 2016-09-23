@@ -32,7 +32,7 @@
                                     </tr>
                                   </table>
                                   <a ui-sref="edit" class="btn btn-primary">Edit Profile</a>
-                                  <a ui-sref="changePassword" class="btn btn-warning">Change Password</a>
+                                  <a ui-sref="changePassword" class="btn btn-warning" ng-if="profileCtrl.providerData.providerId =='password'">Change Password</a>
                              </div>
                           </div>
                       </div>       
