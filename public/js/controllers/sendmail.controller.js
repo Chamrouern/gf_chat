@@ -27,7 +27,7 @@ sentMailCtrl.sendEmail = function() {
           border-bottom-right-radius:4px;margin: 0 auto;\
           margin-bottom: 10%;background: #FFFFFF;">\
           <h4>Dear Friends,</h4>\
-      <p>I would love to invite you to join GF-Chat to communication with me!</p>\
+      <p>I would love to invite you to join GF-Chat communication with me!</p>\
       <p>Let register together to play chat with us.</p>\
       <a href="https://gf-chat.firebaseapp.com/#/">\
          <button type="button" style="background-color: #5BC0DE;\
