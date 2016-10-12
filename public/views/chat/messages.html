@@ -8,7 +8,7 @@
               <h4>{{ messagesCtrl.teamName }}</h4>
               <p>{{ messagesCtrl.teamDescription }}</p>
           </div>
-          <div class="panel-body">
+          <div class="panel-body" scroll-glue>
           <ul class="chat" ng-repeat="message in messagesCtrl.messages">
             <li class="right clearfix">
               <span class="chat-img pull-left">

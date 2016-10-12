@@ -1,4 +1,4 @@
-	app.controller('AuthCtrl', function(Auth,Users, $state) {
+	app.controller('AuthCtrl', function(Auth,Users, $state,toaster) {
 		var authCtrl = this;
 		var usersRef = firebase.database().ref("users");
 		authCtrl.user = {
@@ -20,9 +20,10 @@
 					displayName: auth.user.displayName
 				})
 				}
+				toaster.pop('success', 'Success Login', 'Welcome to your profile');
 				$state.go('home');
 			}, function(error) {
-				authCtrl.error = error;
+				toaster.pop('error', error.code, error.message);
 			});	
 		};
 		authCtrl.loginFacebook = function(){
@@ -36,19 +37,24 @@
 					displayName: auth.user.displayName
 				})
 			}
+				toaster.pop('success', 'Success Login', 'Welcome to your profile');
 				$state.go('home');
 			}, function(error) {
-				authCtrl.error = error;
+				toaster.pop('error', error.code, error.message);
 			});	
 		};
-		authCtrl.login = function() {
+		authCtrl.login = function(isvalid) {
+			if (isvalid) {
 			Auth.$signInWithEmailAndPassword(authCtrl.user.email,authCtrl.user.password).then(function(auth) {
+				toaster.pop('success', 'Success Login', 'Welcome to your profile');
 				$state.go('home');
 			}, function(error) {
-				authCtrl.error = error;
+				toaster.pop('error', error.code, error.message);
 			});
+		}
 		};
-		authCtrl.register = function() {
+		authCtrl.register = function(isvalid) {
+			if (isvalid) {
 			Auth.$createUserWithEmailAndPassword(authCtrl.user.email,authCtrl.user.password).then(function(user) {
 				usersRef.child(user.uid).set({
 					FirstName: authCtrl.user.firstName,
@@ -57,9 +63,10 @@
 					Gender: authCtrl.user.gender,
 					displayName: authCtrl.user.firstName +" "+authCtrl.user.lastName
 				});
-				authCtrl.login();
+				authCtrl.login(isvalid);
 			}, function(error) {
-				authCtrl.error = error;
+				toaster.pop('error', error.code, error.message);
 			});	
+		}
 		};
 	});

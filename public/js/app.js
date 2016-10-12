@@ -1,3 +1,5 @@
+
+if ('serviceWorker' in navigator) { console.log('Service Worker is supported'); navigator.serviceWorker.register('sw.js').then(function() { return navigator.serviceWorker.ready; }).then(function(reg) { console.log('Service Worker is ready :^)', reg); reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) { console.log('endpoint:', sub.endpoint); }); }).catch(function(error) { console.log('Service Worker error :^(', error); }); }
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBTwgH63N0JfVzoUCWkEWqQO0jzNigPjlo",
@@ -7,7 +9,7 @@
   };
   firebase.initializeApp(config);
 
-var app = angular.module("chatApp", ['firebase','ui.router']);
+var app = angular.module("chatApp", ['firebase','ui.router','luegg.directives','toaster','validation', 'validation.rule']);
 app.config(function ($stateProvider, $urlRouterProvider) { 
     $stateProvider
       .state('home', {
@@ -79,6 +81,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
               return 'views/chat/team/create.html?' + +new Date();
             },
         controller: 'TeamsCtrl as teamsCtrl'
+      })
+      .state('teams.invite', {
+        url: '/invite',
+        templateUrl: function() {
+              return 'views/chat/team/invite.html?' + +new Date();
+            },
+        controller: 'SentMailCtrl as sentMailCtrl'
       })
       .state('teams.messages', {
         url: '/{teamsId}/messages',

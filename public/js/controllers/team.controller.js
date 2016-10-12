@@ -11,10 +11,12 @@
 			discription: '',
 			member: []	
 		};
-		teamCtrl.createTeam = function(){
-			teamCtrl.newTeam.member.push(profile.$id);
-		 teamCtrl.teams.$add(teamCtrl.newTeam).then(function(ref){
-		    $state.go('teams.messages', {teamsId: ref.key});
-		  });
+		teamCtrl.createTeam = function(isvalid){
+			if (isvalid) {
+				teamCtrl.newTeam.member.push(profile.$id);
+		 		teamCtrl.teams.$add(teamCtrl.newTeam).then(function(ref){
+		    	$state.go('teams.messages', {teamsId: ref.key});
+		  		});
+			}
 		};
 	});
