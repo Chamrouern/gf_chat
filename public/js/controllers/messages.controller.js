@@ -17,7 +17,7 @@
 		  }
 		
 		};
-		  messagesCtrl.delectMessage = function(item){		  	
-            messagesCtrl.messages.$remove(item);
-		  };
+		  messagesCtrl.delectMessage = function(item){		  	            
+            messagesCtrl.messages.$remove(messagesCtrl.messages.$getRecord(item));
+		  };		
 	});

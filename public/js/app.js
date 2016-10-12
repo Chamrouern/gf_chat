@@ -1,3 +1,20 @@
+if ('serviceWorker' in navigator) {
+ console.log('Service Worker is supported');
+  navigator.serviceWorker.register('sw.js').then(
+    function() {
+     return navigator.serviceWorker.ready; 
+   }).then(function(reg) {
+    console.log('Service Worker is ready :^)', reg);
+     reg.pushManager.subscribe({
+      userVisibleOnly: true
+       }).then(function(sub) {
+      console.log('endpoint:', sub.endpoint);
+   });
+    }).catch(function(error) {
+     console.log('Service Worker error :^(', error);
+  });
+}
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBTwgH63N0JfVzoUCWkEWqQO0jzNigPjlo",
@@ -5,6 +22,7 @@
     databaseURL: "https://gf-chat.firebaseio.com",
     storageBucket: "gf-chat.appspot.com",
   };
+
   firebase.initializeApp(config);
 
 var app = angular.module("chatApp", ['firebase','ui.router']);
@@ -182,3 +200,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       	$urlRouterProvider.otherwise('/');
        })
       .constant('FirebaseUrl', 'https://gf-chat.firebaseio.com');
+
+
+
