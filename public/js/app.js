@@ -1,3 +1,4 @@
+
 if ('serviceWorker' in navigator) {
  console.log('Service Worker is supported');
   navigator.serviceWorker.register('sw.js').then(
@@ -14,7 +15,6 @@ if ('serviceWorker' in navigator) {
      console.log('Service Worker error :^(', error);
   });
 }
-
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBTwgH63N0JfVzoUCWkEWqQO0jzNigPjlo",
@@ -25,7 +25,7 @@ if ('serviceWorker' in navigator) {
 
   firebase.initializeApp(config);
 
-var app = angular.module("chatApp", ['firebase','ui.router']);
+var app = angular.module("chatApp", ['firebase','ui.router','luegg.directives','toaster','validation', 'validation.rule']);
 app.config(function ($stateProvider, $urlRouterProvider) { 
     $stateProvider
       .state('home', {
@@ -73,7 +73,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
        .state('teams', {
         url: '/teams',
         controller: 'TeamsCtrl as teamsCtrl',
-        templateUrl: 'views/chat/index.html',
+        templateUrl: function() {
+              return 'views/chat/index.html?' + +new Date();
+            },
         resolve: {
           teams: function (Teams){
             return Teams.$loaded();
@@ -91,12 +93,23 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       })
       .state('teams.create', {
         url: '/create',
-        templateUrl: 'views/chat/team/create.html',
+        templateUrl: function() {
+              return 'views/chat/team/create.html?' + +new Date();
+            },
         controller: 'TeamsCtrl as teamsCtrl'
+      })
+      .state('teams.invite', {
+        url: '/invite',
+        templateUrl: function() {
+              return 'views/chat/team/invite.html?' + +new Date();
+            },
+        controller: 'SentMailCtrl as sentMailCtrl'
       })
       .state('teams.messages', {
         url: '/{teamsId}/messages',
-        templateUrl: 'views/chat/messages.html',
+        templateUrl:  function() {
+              return 'views/chat/messages.html?' + +new Date();
+            },
         controller: 'MessagesCtrl as messagesCtrl', 
         resolve: {
           messages: function($stateParams, Messages){
@@ -113,7 +126,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       })
       .state('teams.direct', {
         url: '/{uid}/messages/direct',
-        templateUrl: 'views/chat/messages.html',
+        templateUrl: function() {
+              return 'views/chat/messages.html?' + +new Date();
+            },
         controller: 'MessagesCtrl as messagesCtrl',
         resolve: {
           messages: function($stateParams, Messages, profile){

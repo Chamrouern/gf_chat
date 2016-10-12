@@ -283,8 +283,14 @@
 
 /*End Chat box style*/
 
+.validation-invalid,.ng-invalid.ng-dirty { 
+    color: red;
+    font-weight: bold;
+ }
 
-
-
+.validation-valid,.ng-valid.ng-dirty { 
+    color: green;
+    font-weight: bold;
+}
           
 
