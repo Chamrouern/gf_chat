@@ -1,40 +1,38 @@
 <div class="col-sm-8">
     <div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-            <form ng-submit="teamsCtrl.createTeam(creatTeam.$valid)" name="creatTeam">
-                <h2>Create Team Name</h2>
-                <div class="form-group">
-                    <label for="teamName" class="col-sm-3 control-label">Team Name</label>
-                    <div class="col-sm-9">
-                        <input type="text" id="teamName" placeholder="Team Name" class="form-control" 
-                        ng-model="teamsCtrl.newTeam.name" validator="required, maxlength=25" valid-method="blur">
+        <div class="row">
+            <div class="col-sm-8">
+                <form ng-submit="teamsCtrl.createTeam(creatTeam.$valid)" name="creatTeam">
+                    <h2>Create Team Name</h2>
+                    <div class="form-group">
+                        <label for="teamName" class="col-sm-3 control-label">Team Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="teamName" placeholder="Team Name" class="form-control" ng-model="teamsCtrl.newTeam.name" validator="required, maxlength=25" valid-method="blur">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="description" class="col-sm-3 control-label">Team Description</label>
-                    <div class="col-sm-9">
-                       <textarea  id="description" class="form-control" rows="3"  placeholder="Team Description" ng-model="teamsCtrl.newTeam.discription" validator="required, maxlength=70" valid-method="blur"></textarea>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-3 control-label">Team Description</label>
+                        <div class="col-sm-9">
+                            <textarea  id="description" class="form-control" rows="3"  placeholder="Team Description" ng-model="teamsCtrl.newTeam.discription" validator="required, maxlength=70" valid-method="blur"></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="teamName" class="col-sm-3 control-label">Invite Friends</label>
-                    <div class="col-sm-9">
-                        <select class="form-control" ng-model="teamsCtrl.newTeam.member" multiple validator="required" valid-method="blur">
-                            <option  ng-repeat="user in teamsCtrl.users" ng-if="user.$id !== teamsCtrl.profile.$id" value="{{user.$id}}" >
+                    <div class="form-group">
+                        <label for="teamName" class="col-sm-3 control-label">Invite Friends</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" ng-model="teamsCtrl.newTeam.member" multiple validator="required" valid-method="blur">
+                                <option  ng-repeat="user in teamsCtrl.users" ng-if="user.$id !== teamsCtrl.profile.$id" value="{{user.$id}}" >
                                 {{ user.displayName }}
-                            </option>
-                        </select>
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <input type="submit" class="btn btn-success" value="Create Team">
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <input type="submit" class="btn btn-success" value="Create Team">
+                        </div>
                     </div>
-                </div>
-            </form> <!-- /form -->
+                </form> <!-- /form -->
             </div>
         </div> <!-- ./container -->
     </div>
- </div>
-   <!-- content center end -->
+ </div><!-- content center end -->
