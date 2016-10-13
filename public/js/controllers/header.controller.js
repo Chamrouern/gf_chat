@@ -8,18 +8,15 @@ app.controller('headerPage', function($scope,$state,Auth,Users) {
               	$scope.userName = Users.getDisplayName(firebaseUser.uid);
             });
     	}		
-    	$scope.logout = function(){
+    $scope.logout = function(){
     		Users.getProfile(firebaseUser.uid).$loaded().then(function (profile){
     				profile.online = null;
 		  			profile.$save().then(function(){
 		    		Auth.$signOut().then(function(){
 		    			window.location.reload();
 		    		});
-
-    		});
-		  });
-		
-    };			
-});
-
+    	       });
+		  });		
+        };			
+    });
 })

@@ -1,9 +1,9 @@
-         <!--  content center -->
-  <div class="col-sm-8">
-     <div class="container">
-          <div class="row hold">
-               <div class="col-sm-8">
-            <form class="form-horizontal" role="form" ng-submit="authCtrl.register(register.$valid)" name="register">
+<!--  content center -->
+<div class="col-sm-8">
+    <div class="container">
+        <div class="row hold">
+            <div class="col-sm-8">
+                <form class="form-horizontal" role="form" ng-submit="authCtrl.register(register.$valid)" name="register">
                 <h2>Registration Form</h2>
                 <toaster-container toaster-options="{'time-out': 10000}"></toaster-container>
                 <div class="form-group">
@@ -12,7 +12,7 @@
                          <input type="text" class="form-control" ng-model="authCtrl.user.firstName" placeholder="Fist Name" id="firstName" validator="required, maxlength=15" valid-method="blur"/> 
                     </div>
                 </div>
-                  <div class="form-group">
+                <div class="form-group">
                     <label for="lastName" class="col-sm-3 control-label">Last Name</label>
                     <div class="col-sm-9">
                          <input type="text" class="form-control" ng-model="authCtrl.user.lastName" placeholder="Last Name" id="lastName" validator="required, maxlength=15" valid-method="blur"/> 
@@ -53,14 +53,14 @@
                         </div>
                     </div>
                 </div> <!-- /.form-group -->
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <input type="submit" class="btn btn-primary btn-block" value="Register">
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <input type="submit" class="btn btn-primary btn-block" value="Register">
+                        </div>
                     </div>
-                </div>
-            </form> <!-- /form -->
+                </form> <!-- /form -->
             </div>
         </div> <!-- ./container -->
     </div>
- </div>
+</div>
    <!-- content center end -->

@@ -21,7 +21,6 @@ app.factory('Users', function($firebaseArray, $firebaseObject) {
 			setOnline: function(uid){
 			  var connected = $firebaseObject(connectedRef);
 			  var online = $firebaseArray(usersRef.child(uid+'/online'));
-
 			  connected.$watch(function (){
 			    if(connected.$value === true){
 			      online.$add(true).then(function(connectedRef){
@@ -33,4 +32,4 @@ app.factory('Users', function($firebaseArray, $firebaseObject) {
 			all: users
 		};
 		return Users;
-	});
+});

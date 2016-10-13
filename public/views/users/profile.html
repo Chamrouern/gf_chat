@@ -1,42 +1,42 @@
 <!--  content center -->
-  <div class="col-sm-8">
-     <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
-          <div class="row hold">
-            <div class="col-sm-8">
-                      <div class="col-md-4 bg_blur ">                         
-                      </div>
-                          <div class="col-md-8  col-xs-12">
-                             <img src="img/Chat-time.jpg" class="img-thumbnail picture hidden-xs" />
-                             <div class="header">
-                                  <h1>{{ profileCtrl.profile.displayName}}</h1>
-                                  <table style="margin-left:50px;">
-                                    <tr>
-                                      <td><h4>Email:</h4></td>
-                                      <td>{{ profileCtrl.email }}</td>
-                                    </tr>
-                                      <tr>
-                                      <td><h4>Gender:</h4></td>
-                                      <td>{{ profileCtrl.profile.Gender }}</td>
-                                    </tr>
-                                      <tr>
-                                      <td><h4>Address:</h4></td>
-                                      <td>{{ profileCtrl.profile.Address}}</td>
-                                    </tr>
-                                     <tr>
-                                      <td><h4>Last Name:</h4></td>
-                                      <td>{{ profileCtrl.profile.LastName}}</td>
-                                    </tr>
-                                     <tr>
-                                      <td><h4>First Name:</h4></td>
-                                      <td>{{ profileCtrl.profile.FirstName}}</td>
-                                    </tr>
-                                  </table>
-                                  <a ui-sref="edit" class="btn btn-primary">Edit Profile</a>
-                                  <a ui-sref="changePassword" class="btn btn-warning" ng-if="profileCtrl.providerData.providerId =='password'">Change Password</a>
-                             </div>
-                          </div>
-                      </div>       
+<div class="col-sm-8">
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+      <div class="row hold">
+        <div class="col-sm-8">
+          <div class="col-md-4 bg_blur ">                         
+          </div>
+          <div class="col-md-8  col-xs-12">
+            <img src="img/Chat-time.jpg" class="img-thumbnail picture hidden-xs" />
+              <div class="header">
+                <h1>{{ profileCtrl.profile.displayName}}</h1>
+                <table style="margin-left:50px;">
+                  <tr>
+                    <td><h4>Email:</h4></td>
+                    <td>{{ profileCtrl.email }}</td>
+                  </tr>
+                  <tr>
+                    <td><h4>Gender:</h4></td>
+                    <td>{{ profileCtrl.profile.Gender }}</td>
+                  </tr>
+                  <tr>
+                    <td><h4>Address:</h4></td>
+                    <td>{{ profileCtrl.profile.Address}}</td>
+                  </tr>
+                  <tr>
+                    <td><h4>Last Name:</h4></td>
+                    <td>{{ profileCtrl.profile.LastName}}</td>
+                  </tr>
+                  <tr>
+                    <td><h4>First Name:</h4></td>
+                    <td>{{ profileCtrl.profile.FirstName}}</td>
+                  </tr>
+              </table>
+              <a ui-sref="edit" class="btn btn-primary">Edit Profile</a>
+              <a ui-sref="changePassword" class="btn btn-warning" ng-if="profileCtrl.providerData.providerId =='password'">Change Password</a>
             </div>
-        </div> 
-    </div>
- </div>
+          </div>
+        </div>       
+      </div>
+    </div> 
+  </div>
+</div>

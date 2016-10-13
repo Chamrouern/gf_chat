@@ -1,4 +1,4 @@
-	app.controller('TeamsCtrl', function($state, Auth, Users, profile, teams) {
+app.controller('TeamsCtrl', function($state, Auth, Users, profile, teams) {
 		var teamCtrl = this;
 		teamCtrl.profile = profile;
 		teamCtrl.teams = teams;

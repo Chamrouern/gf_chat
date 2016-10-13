@@ -1,34 +1,31 @@
 <div class="col-sm-8">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8">
-       <br>
+      <div class="col-sm-8"><br>
         <div class="panel panel-primary">
           <div class="panel-heading">
-              <h4>{{ messagesCtrl.teamName }}</h4>
-              <p>{{ messagesCtrl.teamDescription }}</p>
+            <h4>{{ messagesCtrl.teamName }}</h4>
+            <p>{{ messagesCtrl.teamDescription }}</p>
           </div>
           <div class="panel-body" scroll-glue>
-          <ul class="chat" ng-repeat="message in messagesCtrl.messages">
-            <li class="right clearfix">
-              <span class="chat-img pull-left">
+            <ul class="chat" ng-repeat="message in messagesCtrl.messages">
+              <li class="right clearfix">
+                <span class="chat-img pull-left">
                   <img ng-src="{{ teamsCtrl.getGravatar(message.uid) }}" class="img-circle" style="width:100px;height:100px;" />
-              </span>
-              <div class="chat-body clearfix">
-                <div class="header">
-                <small class=" text-muted pull-right">
-                    <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                    {{ message.timestamp | date:'short' }}
-                          <span ng-if="messagesCtrl.Auth.uid == message.uid">
-                              <i class="fa fa-trash" ng-click ="messagesCtrl.delectMessage(message.$id)" style="color:red; cursor:pointer;"></i>
-                         </span>
+                </span>
+                <div class="chat-body clearfix">
+                  <div class="header">
+                    <small class=" text-muted pull-right">
+                      <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{ message.timestamp | date:'short' }}
+                      <span ng-if="messagesCtrl.Auth.uid == message.uid">
+                        <i class="fa fa-trash" ng-click ="messagesCtrl.delectMessage(message.$id)" style="color:red; cursor:pointer;"></i>
+                      </span>
                     </small>
-                  <strong class="pull-left">{{ teamsCtrl.getDisplayName(message.uid) }}</strong>
+                    <strong class="pull-left">{{ teamsCtrl.getDisplayName(message.uid) }}</strong>
+                  </div><p>{{ message.body }}</p>
                 </div>
-                <p>{{ message.body }}</p>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
           </div>
           <div class="panel-footer">
             <form class="message-form" ng-submit="messagesCtrl.sendMessage()">

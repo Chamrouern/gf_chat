@@ -1,7 +1,7 @@
-	app.controller('AuthCtrl', function(Auth,Users, $state,toaster) {
-		var authCtrl = this;
-		var usersRef = firebase.database().ref("users");
-		authCtrl.user = {
+app.controller('AuthCtrl', function(Auth,Users, $state,toaster) {
+	var authCtrl = this;
+	var usersRef = firebase.database().ref("users");
+	authCtrl.user = {
 			email: '',
 			password: '',
 			firstName: '',
@@ -9,25 +9,25 @@
 			address: '',
 			gender: ''
 		};
-		authCtrl.loginGoogle = function(){
-			Auth.$signInWithPopup('google').then(function(auth){
-				if (Users.all.$indexFor(auth.user.uid) == -1) {
-					usersRef.child(auth.user.uid).set({
-					FirstName:"",
-					LastName:"",
-					Address:"",
-					Gender:"",
-					displayName: auth.user.displayName
-				})
-				}
-				toaster.pop('success', 'Success Login', 'Welcome to your profile');
-				$state.go('home');
+	authCtrl.loginGoogle = function(){
+		Auth.$signInWithPopup('google').then(function(auth){
+			if (Users.all.$indexFor(auth.user.uid) == -1) {
+				usersRef.child(auth.user.uid).set({
+				FirstName:"",
+				LastName:"",
+				Address:"",
+				Gender:"",
+				displayName: auth.user.displayName
+			})
+		}
+			toaster.pop('success', 'Success Login', 'Welcome to your profile');
+			$state.go('home');
 			}, function(error) {
 				toaster.pop('error', error.code, error.message);
 			});	
 		};
-		authCtrl.loginFacebook = function(){
-			Auth.$signInWithPopup('facebook').then(function(auth){
+	authCtrl.loginFacebook = function(){
+		Auth.$signInWithPopup('facebook').then(function(auth){
 				if (Users.all.$indexFor(auth.user.uid) == -1) {
 				usersRef.child(auth.user.uid).set({
 					FirstName:"",

@@ -13,7 +13,6 @@ app.controller('ProfileCtrl', function($state,Auth,Users,auth, profile,toaster) 
 			if (isvalid) {
 				Users.updateProfile(auth.uid,profileCtrl.profile).then(function(){
 					$state.go('profile');
-
 				});
 			}
 		}
