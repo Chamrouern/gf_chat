@@ -140,3 +140,73 @@
 [info] Public Directory: public
 [info] 
 [info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Vanda\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.0.8
+[debug] Platform:     win32
+[debug] Node Version: v4.4.7
+[debug] Time:         Wed Oct 19 2016 08:21:59 GMT+0700 (SE Asia Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\gf_chat
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Vanda\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.0.8
+[debug] Platform:     win32
+[debug] Node Version: v4.4.7
+[debug] Time:         Thu Oct 20 2016 08:36:59 GMT+0700 (SE Asia Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\gf_chat
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Vanda\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.0.8
+[debug] Platform:     win32
+[debug] Node Version: v4.4.7
+[debug] Time:         Fri Oct 21 2016 08:13:39 GMT+0700 (SE Asia Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\gf_chat
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Vanda\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.0.8
+[debug] Platform:     win32
+[debug] Node Version: v4.4.7
+[debug] Time:         Tue Oct 25 2016 08:12:57 GMT+0700 (SE Asia Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\gf_chat
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      C:\Program Files\nodejs\node.exe C:\Users\Vanda\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] CLI Version:  3.0.8
+[debug] Platform:     win32
+[debug] Node Version: v4.4.7
+[debug] Time:         Wed Oct 26 2016 08:13:27 GMT+0700 (SE Asia Standard Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: C:\wamp\www\gf_chat
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000

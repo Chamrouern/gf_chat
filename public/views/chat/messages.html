@@ -13,7 +13,7 @@
                 <span class="chat-img pull-left">
                   <img ng-src="{{ teamsCtrl.getGravatar(message.uid) }}" class="img-circle" style="width:100px;height:100px;" />
                 </span>
-                <div class="chat-body clearfix">
+                <div class="chat-body">
                   <div class="header">
                     <small class=" text-muted pull-right">
                       <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{ message.timestamp | date:'short' }}
@@ -22,7 +22,8 @@
                       </span>
                     </small>
                     <strong class="pull-left">{{ teamsCtrl.getDisplayName(message.uid) }}</strong>
-                  </div><p>{{ message.body }}</p>
+                  </div>
+                    <p id="messages">{{ message.body }}</p>
                 </div>
               </li>
             </ul>
@@ -30,7 +31,7 @@
           <div class="panel-footer">
             <form class="message-form" ng-submit="messagesCtrl.sendMessage()">
               <div class="input-group">
-                <input type="text" class="form-control" ng-model="messagesCtrl.message" placeholder="Type a message...">
+                <textarea rows="1" cols="25" ng-enter="messagesCtrl.sendMessage()" class="form-control" ng-model="messagesCtrl.message" placeholder="Type a message..."></textarea>
                 <span class="input-group-btn">
                   <button class="btn btn-success" type="submit">Send</button>
                 </span>

@@ -29,6 +29,7 @@
        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.0.0/toaster.js"></script>
        <script type="text/javascript" src="js/app.js"></script>
        <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+       <script type="text/javascript" src="js/directives/enter.directive.js"></script>
        <script type="text/javascript" src="js/services/auth.service.js"></script>
        <script type="text/javascript" src="js/controllers/auth.controller.js"></script>    
        <script type="text/javascript" src="js/services/users.service.js"></script>   
@@ -51,12 +52,12 @@
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation">
               <a class="mdl-navigation__link" href=""  ng-show="firebaseUser">
-                <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="98">
+                <div class="material-icons mdl-badge mdl-badge--overlap">
                 face
                 </div>
               </a>
               <a class="mdl-navigation__link" href="#" ng-show="firebaseUser">
-                <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">
+                <div class="material-icons mdl-badge mdl-badge--overlap">
                   account_box
                 </div>
               </a>
@@ -66,8 +67,8 @@
                   <span>{{userName}}</span>
                 </a>
                 <div class="dropdown-content" >
-                    <a ui-sref="profile">Profile</a>
-                    <a ng-click="logout()">Signout</a>
+                    <a ui-sref="profile">User Profile</a>
+                    <a ng-click="logout()">Sign Out</a>
                 </div>
               </div>
               <div class="dropdown"  ng-hide="firebaseUser">

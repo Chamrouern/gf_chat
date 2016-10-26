@@ -9,13 +9,15 @@
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" valid-method="blur">
+                        <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email"
+                        email-success-message="Field Email is correct email" 
+                        email-error-message="Field Email is not correct email" required-error-message="Field Email is required email"valid-method="blur">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Password</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="Password" class="form-control" ng-model="authCtrl.user.password" validator="required, minlength=6" valid-method="blur">
+                        <input type="password" id="password" placeholder="Password" class="form-control" ng-model="authCtrl.user.password" validator="required, minlength=6" required-error-message="Field Password is required" minlength-success-message="Field Password is strong enough" minlength-error-message="Field Password is required at least 6 digits"valid-method="blur">
                     </div> 
                 </div>
                 <div class="form-group">
