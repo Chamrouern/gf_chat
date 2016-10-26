@@ -1,66 +1,81 @@
-         <!--  content center -->
-  <div class="col-sm-8">
-     <div class="container">
-          <div class="row hold">
-               <div class="col-sm-8">
-            <form class="form-horizontal" role="form" ng-submit="authCtrl.register(register.$valid)" name="register">
-                <h2>Registration Form</h2>
-                <toaster-container toaster-options="{'time-out': 10000}"></toaster-container>
-                <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
-                    <div class="col-sm-9">
-                         <input type="text" class="form-control" ng-model="authCtrl.user.firstName" placeholder="Fist Name" id="firstName" validator="required, maxlength=15" valid-method="blur"/> 
-                    </div>
-                </div>
-                  <div class="form-group">
-                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
-                    <div class="col-sm-9">
-                         <input type="text" class="form-control" ng-model="authCtrl.user.lastName" placeholder="Last Name" id="lastName" validator="required, maxlength=15" valid-method="blur"/> 
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email</label>
-                    <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" valid-method="blur">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password</label>
-                    <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="Password"  ng-model="authCtrl.user.password" class="form-control" validator="required, minlength=6" valid-method="blur">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAdress" class="col-sm-3 control-label">Address</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputAdress" ng-model="authCtrl.user.address" placeholder="Address" validator="required, maxlength=25" valid-method="blur"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-3">Gender</label>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label class="radio-inline" for="femaleRadio">
-                                    <input type="radio" id="femaleRadio" name="gender" ng-model="authCtrl.user.gender" value="Female">Female
-                                </label>
-                            </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline" for="maleRadio">
-                                    <input type="radio" id="maleRadio" name="gender" ng-model="authCtrl.user.gender" value="Male">Male
-                                </label>
-                            </div>
+<div class="main">
+    <header id="head" class="secondary"></header>
+
+    <!-- container -->
+    <div class="container">
+
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Register</li>
+        </ol>
+
+        <div class="row">
+            
+            <!-- Article main content -->
+            <article class="col-xs-12 maincontent">
+                <header class="page-header">
+                    <h1 class="page-title">Register</h1>
+                </header>
+                
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                              <h3 class="thin text-center">Are you not yet having a count!</h3>
+                            <p class="text-center text-muted">Place fill the column provite step by step and then click submit ! </p>
+                            <hr>
+                            
+                            <form class="form-horizontal" role="form" ng-submit="authCtrl.register(register.$valid)" name="register">
+                                <div class="top-margin">
+                                    <label>First Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" ng-model="authCtrl.user.firstName" placeholder="Fist Name" id="firstName" validator="required, maxlength=15" valid-method="blur"/> 
+                                </div>
+
+                                <div class="top-margin">
+                                    <label>Last Name<span class="text-danger">*</span></label>
+                                    <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" valid-method="blur">
+                                </div>
+
+                                 <div class="top-margin">
+                                    <label>E-mail<span class="text-danger">*</span></label>
+                                    <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" valid-method="blur">
+                                </div>
+
+                                 <div class="top-margin">
+                                    <label>Password<span class="text-danger">*</span></label>
+                                    <input type="password" id="password" placeholder="Password"  ng-model="authCtrl.user.password" class="form-control" validator="required, minlength=6" valid-method="blur">
+                                </div>
+                                 <div class="top-margin">
+                                    <label>Address<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="inputAdress" ng-model="authCtrl.user.address" placeholder="Address" validator="required, maxlength=25" valid-method="blur"/>
+                                    </div>
+                                 <div class="top-margin">
+                                            <div class="col-sm-4 gender">
+                                                <label class="radio-inline" for="femaleRadio">
+                                                    <input type="radio" id="femaleRadio" name="gender" ng-model="authCtrl.user.gender" value="Female">Female
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-4 gender">
+                                                <label class="radio-inline" for="maleRadio">
+                                                    <input type="radio" id="maleRadio" name="gender" ng-model="authCtrl.user.gender" value="Male">Male
+                                                </label>
+                                         </div>
+                                    </div>                                
+                                    <div class="top-margin gender">
+                                         <input type="submit" class="btn btn-primary btn-block" value="Register">
+                                    </div>
+                            </form>
                         </div>
                     </div>
-                </div> <!-- /.form-group -->
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <input type="submit" class="btn btn-primary btn-block" value="Register">
-                    </div>
-                </div>
-            </form> <!-- /form -->
-            </div>
-        </div> <!-- ./container -->
-    </div>
- </div>
-   <!-- content center end -->
+                
+            </article>
+            <!-- /Article -->
+
+        </div>
+    </div>  <!-- /container -->   
+        
+</div>
+
+
+
+
+
+

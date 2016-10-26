@@ -3,9 +3,10 @@
   xmlns:fb="https://www.facebook.com/2008/fbml">
   <head>
     <meta charset="utf-8">
-    <title>Welcome to GF-Chat</title>
+    <title>GF-chat</title>
+    <link rel="shortcut icon" href="img/icon.png">
+       <link rel="stylesheet" type="text/css" href="manifest.json">
        <script type="text/javascript" src="sw.js"></script>
-       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css"/>
        <script type="text/javascript" src="js/services/notify.js"></script>
        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -50,33 +51,26 @@
         <div id="fb-root"></div>
         <script src="https://connect.facebook.net/en_US/all.js"></script>
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="padding-top:60px;">
-        <header class="mdl-layout__header navbar-fixed-top" ng-controller="headerPage as data" style="background: #ff704d">
-          <div class="mdl-layout__header-row" style="background: #ff604d">
+        <header class="mdl-layout__header navbar-fixed-top" ng-controller="headerPage as data" style="background: #ff471a">
+          <div class="mdl-layout__header-row" style="background:  #ff471a">
             <span class="mdl-layout-title">FG-Chat</span>
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation mdl-layout--large-screen-only">
               <a class="mdl-navigation__link" href=""  ng-show="firebaseUser">
-                <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="98">
-                face
-                </div>
-              </a>
-              <a class="mdl-navigation__link" href="#" ng-show="firebaseUser">
-                <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">
-                  account_box
-                </div>
+               <div class="list-head"><a title="Invite your firends !" ui-sref="teams.invite"><i class="fa fa-users fa-x2" aria-hidden="true" style="color:white;"></i></a></div>
               </a>
               <div class="dropdown" ng-show="firebaseUser">
                 <a class="mdl-navigation__link">
-                  <img class="mdl-chip__contact" src="img/photo.jpg"/>
+                  <img class="mdl-chip__contact" src="img/chat.png"/>
                   <span>{{userName}}</span>
                 </a>
                 <div class="dropdown-content" >
                     <a ui-sref="profile">Profile</a>
-                    <a ng-click="logout()">Signout</a>
+                    <a ng-click="logout()">Sign out</a>
                 </div>
               </div>
-              <div class="dropdown"  ng-hide="firebaseUser">
-                <a class="mdl-navigation__link">Sign in</a>
+              <div class="dropdown" ng-hide="firebaseUser">
+                      <a class="mdl-navigation__link"><h4>Sign in</h4></a>
                 <div class="dropdown-content" >
                       <a ui-sref="login">Login</a>
                       <a ui-sref="register">Register</a>
@@ -105,4 +99,3 @@
   </div>
 </div>
 <div ng-include="'/views/templates/footer.html'"></div>
-</div>

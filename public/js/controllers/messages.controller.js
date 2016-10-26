@@ -1,10 +1,12 @@
 	app.controller('MessagesCtrl', function(Auth,profile, teamName, teamDescription, messages) {
 		var messagesCtrl = this;
 		messagesCtrl.Auth = Auth.$getAuth();
+		console.log(messagesCtrl.Auth);
 		messagesCtrl.messages = messages;
 		messagesCtrl.teamName = teamName;
 		messagesCtrl.teamDescription = teamDescription;
 		messagesCtrl.message = '';
+		console.log(messages);
 		messagesCtrl.sendMessage = function (){
 		  if(messagesCtrl.message.length > 0){
 		    messagesCtrl.messages.$add({
@@ -17,7 +19,12 @@
 		  }
 		
 		};
-		  messagesCtrl.delectMessage = function(item){		  	            
+		messagesCtrl.delectMessage = function(item){		  	            
             messagesCtrl.messages.$remove(messagesCtrl.messages.$getRecord(item));
-		  };		
+		  };
+		messagesCtrl.getDatetime = function() {
+			  return (new Date).toLocaleFormat("%A, %B %e, %Y");
+	    };	
+
 	});
+
