@@ -1,3 +1,4 @@
+
 if ('serviceWorker' in navigator) { console.log('Service Worker is supported'); navigator.serviceWorker.register('sw.js').then(function() { return navigator.serviceWorker.ready; }).then(function(reg) { console.log('Service Worker is ready :^)', reg); reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) { console.log('endpoint:', sub.endpoint); }); }).catch(function(error) { console.log('Service Worker error :^(', error); }); }
 // Initialize Firebase
 var config = {
@@ -6,6 +7,7 @@ var config = {
     databaseURL: "https://gf-chat.firebaseio.com",
     storageBucket: "gf-chat.appspot.com",
   };
+
   firebase.initializeApp(config);
 var app = angular.module("chatApp", ['firebase','ui.router','luegg.directives','toaster','validation', 'validation.rule']);
 app.config(function ($stateProvider, $urlRouterProvider) { 
@@ -16,7 +18,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         resolve: {
            requireNoAuth : function(Auth,$state){ 
            return Auth.$requireSignIn().then(function(auth){
-            $state.go('teams');
+            $state.go('teams.homeIn');
           },function(error){
             return;
           });
@@ -190,6 +192,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: 'AuthCtrl as authCtrl',
         templateUrl: 'views/post/gift.html'
       })
+      .state('teams.homeIn', {
+        url: '/homein',
+        templateUrl: function() {
+              return 'views/chat/team/homein.html?' + +new Date();
+            },
+        controller: 'TeamsCtrl as teamsCtrl'
+      })
+
       .state('freebie', {
         url: '/freebie',
         templateUrl: 'views/post/freebie.html',
@@ -197,3 +207,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       	$urlRouterProvider.otherwise('/');
        })
       .constant('FirebaseUrl', 'https://gf-chat.firebaseio.com');
+
+
+

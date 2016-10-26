@@ -1,40 +1,68 @@
-<!--  content center -->
-<div class="col-sm-8">
+ <div class="main">
+    <header id="head" class="secondary"></header>
+
+    <!-- container -->
     <div class="container">
-        <div class="row hold">
-            <div class="col-sm-8">
-                <form class="form-horizontal" role="form" ng-submit="authCtrl.login(login.$valid)" name="login">
-                <h2>Login</h2>
-                <toaster-container toaster-options="{'time-out': 10000}"></toaster-container>
-                <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email</label>
-                    <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" valid-method="blur">
+
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Log in</li>
+        </ol>
+
+        <div class="row">
+            
+            <!-- Article main content -->
+            <article class="col-xs-12 maincontent">
+                <header class="page-header">
+                    <h1 class="page-title">Sign in</h1>
+                </header>
+                
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                            <h3 class="thin text-center">Sign in to your account</h3>
+                            <p class="text-center text-muted">Place fill the column care fully ! </p>
+                            <hr>
+                            
+                            <form class="form-horizontal" role="form" ng-submit="authCtrl.login(login.$valid)" name="login">
+                                <div class="top-margin">
+                                    <label>Username/Email <span class="text-danger">*</span></label>
+                                    <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" valid-method="blur">
+                                </div>
+                                <div class="top-margin">
+                                    <label>Password <span class="text-danger">*</span></label>
+                                    <input type="password" id="password" placeholder="Password" class="form-control" ng-model="authCtrl.user.password" validator="required, minlength=6" valid-method="blur">
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                  
+                                    <div class="col-lg-6 text-right">
+                                         <input type="submit" class="btn btn-submit btn-block" value="Login">
+                                    </div>
+                                    <div class="col-lg-4 text-right">
+                                           <div class="form-group">
+                                            <button type="button" class="btn btn-primary " ng-click="authCtrl.loginFacebook()">Facebook</button>
+                                            <button type="button" class="btn btn-danger " ng-click="authCtrl.loginGoogle()">Google+</button>
+                                    </div>
+                                    </div>
+                                      <div class="col-lg-6">
+                                        <a href="">Forgot password?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password</label>
-                    <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="Password" class="form-control" ng-model="authCtrl.user.password" validator="required, minlength=6" valid-method="blur">
-                    </div> 
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <input type="submit" class="btn btn-submit btn-block" value="Login">
-                    </div>
-                </div>
-                </br>
-                </br>
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <button type="button" class="btn btn-primary " ng-click="authCtrl.loginFacebook()">Facebook</button>
-                        <button type="button" class="btn btn-danger " ng-click="authCtrl.loginGoogle()">Google+</button>
-                    </div>
-                </div>
-            </form> <!-- /form -->
-            </div>
-        </div> <!-- ./container -->
-    </div>
- </div>
-   <!-- content center end -->
+                
+            </article>
+            <!-- /Article -->
+
+        </div>
+    </div>  <!-- /container -->   
+        
+</div>
+
+
+
+
 
