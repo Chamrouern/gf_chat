@@ -1,3 +1,5 @@
+
+<!-- inbox -->
 <div class="col-sm-8">
   <div class="container">
     <div class="row">
@@ -28,18 +30,22 @@
               </li>
             </ul>
           </div>
-          <div class="panel-footer">
+          
+          <!-- button -->
             <form class="message-form" ng-submit="messagesCtrl.sendMessage()">
               <div class="input-group">
                 <textarea rows="1" cols="25" ng-enter="messagesCtrl.sendMessage()" class="form-control" ng-model="messagesCtrl.message" placeholder="Type a message..."></textarea>
                 <span class="input-group-btn">
-                  <button class="btn btn-success" type="submit">Send</button>
+                  <button class="btn btn-success" type="submit" ng-click="showSuccess()">Send</button>
                 </span>
               </div>
             </form>
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
+
+<!-- inbox -->
     </div>
   </div>
 </div>
+</div>
+<!-- inbox -->
