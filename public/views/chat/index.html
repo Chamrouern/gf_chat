@@ -1,6 +1,6 @@
 <div class="col-sm-2 sidenav">
    <ul class="demo-list-control mdl-list">
-    <div class="list-head"><a ui-sref="teams.invite"><h4>Let's your friend know !</h4></a></div>
+   
    </ul>
 </div>
  <div class="col-sm-8">
@@ -9,19 +9,25 @@
      </div>
  </div>
          <!-- sidebar right -->
-<div class="col-sm-2 sidenav sidebar">
+<div class="col-sm-2 sidenav sidebar users">
       <ul class="demo-list-control mdl-list">
-            <div class="list-head"><h4>Group Messages</h4></div>
-              <div class="teams" ng-repeat="teams in teamsCtrl.teams">
+           <div class="list-head "><h4>Group Messages</h4></div>
+              <div class="teams " ng-repeat="teams in teamsCtrl.teams">
+              <div class="dropdown">
                   <li class="mdl-list__item" ng-repeat="member in teams.member" ng-if="member == teamsCtrl.profile.$id">
-                    <span class="mdl-list__item-primary-content">
-                      <i class="material-icons ">group</i>
-                      <a  title ="{{ teams.discription }}" ui-sref="teams.messages({teamsId: teams.$id})" ui-sref-active="selected"> {{ teams.name }}</a>
-                    </span>
+                     <span class="mdl-list__item-primary-content" >
+                            <i class="material-icons ">group</i>
+                            <a  title ="{{ teams.discription }}" ui-sref="teams.messages({teamsId: teams.$id})" ui-sref-active="selected" style="text-align: right;"> {{ teams.name }}</a>
+                      </span>  
                   </li>
+                  <div class="dropdown-content over" >
+                                        <a  hreft="#" ng-repeat="user in teamsCtrl.users" ng-if="user.$id !== teamsCtrl.profile.$id" value="{{user.$id}}" >
+                                {{ user.displayName }}
+                                        </a>
+                  </div>
+                  </div>
               </div>
-
-            <li class="mdl-list__item">
+            <li class="mdl-list__item ">
               <span class="mdl-list__item-primary-content">
                 <i class="material-icons">create</i>
                 <a ui-sref="teams.create">Create New </a>
@@ -29,15 +35,14 @@
             </li>
             <hr/>
             <div class="list-head"><h4>Direct Messages</h4></div>
-            <div class="users" ng-repeat="user in teamsCtrl.users">
+            <div  ng-repeat="user in teamsCtrl.users">
                 <li class="mdl-list__item" ng-if="user.$id !== teamsCtrl.profile.$id">
-                <span class="mdl-list__item-primary-content">
-                  <i class="material-icons ">person</i>
-                  <a ui-sref="teams.direct({uid: user.$id})" ui-sref-active="selected">{{ user.displayName }}</a>
-                </span>
                   <span class="mdl-list__item-primary-content">
                     <img ng-hide = "user.online" src="img/offline.png" class="img-circle">
                     <img ng-show="user.online" src="img/online.png" class="img-circle">
+                </span>
+                 <span class="mdl-list__item-primary-content">
+                  <a ui-sref="teams.direct({uid: user.$id})" ui-sref-active="selected">{{ user.displayName }}</a>
                 </span>
               </li>
             </div>      
