@@ -3,27 +3,38 @@
         <div class="row">
             <div class="col-sm-8">
                 <form ng-submit="teamsCtrl.createTeam(creatTeam.$valid)" name="creatTeam">
-                    <h2>Create Team Name</h2>
+                    <h2>Create Team</h2>
                     <div class="form-group">
                         <label for="teamName" class="col-sm-3 control-label">Team Name</label>
                         <div class="col-sm-9">
-                            <input type="text" id="teamName" placeholder="Team Name" class="form-control" ng-model="teamsCtrl.newTeam.name" validator="required, maxlength=25" valid-method="blur">
+                              <input type="text" id="teamName" placeholder="Team Name" class="form-control" ng-model="teamsCtrl.newTeam.name" validator="required" required-error-message="Field Team Name is required" 
+                            required-success-message="Field Team Name is Good Required"
+                            valid-method="blur">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="description" class="col-sm-3 control-label">Team Description</label>
                         <div class="col-sm-9">
-                            <textarea  id="description" class="form-control" rows="3"  placeholder="Team Description" ng-model="teamsCtrl.newTeam.discription" validator="required, maxlength=70" valid-method="blur"></textarea>
+                            <textarea  id="description" class="form-control" rows="3"  placeholder="Team Description" ng-model="teamsCtrl.newTeam.discription" validator="required" valid-method="blur" required-error-message="Field Team Description is required"
+                            required-success-message="Field Team Description is Good Required"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="teamName" class="col-sm-3 control-label">Invite Friends</label>
+                        <label for="teamName" class="col-sm-3 control-label">Add Members</label>
                         <div class="col-sm-9">
-                            <select class="form-control" ng-model="teamsCtrl.newTeam.member" multiple validator="required" valid-method="blur">
+                            <select class="form-control" ng-model="teamsCtrl.newTeam.member" multiple>
                                 <option  ng-repeat="user in teamsCtrl.users" ng-if="user.$id !== teamsCtrl.profile.$id" value="{{user.$id}}" >
                                 {{ user.displayName }}
                                 </option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <span ng-repeat="member in teamsCtrl.newTeam.member">
+                                {{teamsCtrl.member(member)+";"}}
+                            </span>
                         </div>
                     </div>
                     <div class="form-group">

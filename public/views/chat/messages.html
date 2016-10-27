@@ -1,32 +1,30 @@
-
-<!-- inbox -->
-<div class="col-sm-8">
+<!-- inbox --><div class="col-sm-8">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8">
-         <!-- inbox -->
-<div class="page-header">
-  <div class="page-title"> <h2>{{ messagesCtrl.teamName }}</h2>
-     <p>{{ messagesCtrl.teamDescription }}</p>
-  </div> 
-  <div class="col-sm-12">
-          <div class="panel-body">
+      <div class="col-sm-8"><br>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <a href="#" class="pull-right"><i class="fa fa-times fa-2x" style="text-align: right;"></i></a>
+            <h4>{{ messagesCtrl.teamName }}</h4>
+            <p>{{ messagesCtrl.teamDescription }}</p>
+          </div>
+          <div class="panel-body" scroll-glue>
             <ul class="chat" ng-repeat="message in messagesCtrl.messages">
               <li class="right clearfix">
                 <span class="chat-img pull-left">
-                    <img ng-src="{{ teamsCtrl.getGravatar(message.uid) }}" class="img-circle" style="width:100px;height:100px;" />
+                  <img ng-src="{{ teamsCtrl.getGravatar(message.uid) }}" class="img-circle" style="width:100px;height:100px;" />
                 </span>
                 <div class="chat-body clearfix">
-                <div class="header">
-                <small class=" text-muted pull-right">
-                    <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                    {{ message.timestamp | date:'short' }} |{{messagesCtrl.getDatetime | date:'yyyy-MMM-dd'}}
-                          <span ng-if="messagesCtrl.Auth.uid == message.uid">
-                              <i class="fa fa-trash" ng-click ="messagesCtrl.delectMessage(message.$id)" style="color:red; cursor:pointer;"></i>
-                         </span>
+                  <div class="header">
+                    <small class=" text-muted pull-right">
+                      <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{ message.timestamp | date:'short' }}
+                      <span ng-if="messagesCtrl.Auth.uid == message.uid">
+                        <i class="fa fa-trash" ng-click ="messagesCtrl.delectMessage(message.$id)" style="color:red; cursor:pointer;"></i>
+                      </span>
                     </small>
                     <strong class="pull-left">{{ teamsCtrl.getDisplayName(message.uid) }}</strong>
-                  </div><p>{{ message.body }}</p>
+                  </div>
+                  <p id="messages">{{ message.body }}</p>
                 </div>
               </li>
             </ul>
@@ -35,7 +33,7 @@
           <!-- button -->
             <form class="message-form" ng-submit="messagesCtrl.sendMessage()">
               <div class="input-group">
-                <input type="text" class="form-control" ng-model="messagesCtrl.message" placeholder="Type a message...">
+                <textarea rows="1" cols="25" ng-enter="messagesCtrl.sendMessage()" class="form-control" ng-model="messagesCtrl.message" placeholder="Type a message..."></textarea>
                 <span class="input-group-btn">
                   <button class="btn btn-success" type="submit" ng-click="showSuccess()">Send</button>
                 </span>
