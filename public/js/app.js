@@ -81,13 +81,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             },
         controller: 'TeamsCtrl as teamsCtrl'
       })
-      .state('teams.update', {
-        url: '/update',
-        templateUrl: function() {
-              return 'views/chat/team/edit.html?' + +new Date();
-            },
-        controller: 'TeamsCtrl as teamsCtrl'
-      })
       .state('teams.invite', {
         url: '/invite',
         templateUrl: function() {
