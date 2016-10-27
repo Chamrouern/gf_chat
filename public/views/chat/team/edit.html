@@ -3,11 +3,11 @@
         <div class="row">
             <div class="col-sm-8">
                 <form ng-submit="teamsCtrl.createTeam(creatTeam.$valid)" name="creatTeam">
-                    <h2>Create Team</h2>
+                    <h2>Edit Team</h2>
                     <div class="form-group">
                         <label for="teamName" class="col-sm-3 control-label">Team Name</label>
                         <div class="col-sm-9">
-                              <input type="text" id="teamName" placeholder="Team Name" class="form-control" ng-model="teamsCtrl.newTeam.name" validator="required" required-error-message="Field Team Name is required" 
+                            <input type="text" id="teamName" placeholder="Team Name" class="form-control" ng-model="teamsCtrl.newTeam.name" validator="required" required-error-message="Field Team Name is required" 
                             required-success-message="Field Team Name is Good Required"
                             valid-method="blur">
                         </div>

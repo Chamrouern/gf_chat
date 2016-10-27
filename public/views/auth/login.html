@@ -15,23 +15,23 @@
             <!-- Article main content -->
             <article class="col-xs-12 maincontent">
                 <header class="page-header">
-                    <h1 class="page-title">Sign in</h1>
+                    <h1 class="page-title">Log in</h1>
                 </header>
                 
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-default">
-                            <h3 class="thin text-center">Sign in to your account</h3>
-                            <p class="text-center text-muted">Place fill the column care fully ! </p>
+                            <h3 class="thin text-center">Log in to your account</h3>
+                            <p class="text-center text-muted">Place fill the column carefully ! </p>
                             <hr>
                             
                             <form class="form-horizontal" role="form" ng-submit="authCtrl.login(login.$valid)" name="login">
                                 <div class="top-margin">
-                                    <label>Username/Email <span class="text-danger">*</span></label>
-                                    <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" valid-method="blur">
+                                    <label>Email <span class="text-danger">*</span></label>
+                                    <input type="email" id="email" placeholder="Email" class="form-control" ng-model="authCtrl.user.email" validator="required,email" email-success-message="Field Email is correct email" email-error-message="Field Email is not correct email" required-error-message="Field Email is required email" valid-method="blur">
                                 </div>
                                 <div class="top-margin">
                                     <label>Password <span class="text-danger">*</span></label>
-                                    <input type="password" id="password" placeholder="Password" class="form-control" ng-model="authCtrl.user.password" validator="required, minlength=6" valid-method="blur">
+                                    <input type="password" id="password" placeholder="Password" class="form-control" ng-model="authCtrl.user.password" validator="required, minlength=6" required-error-message="Field Password is required" minlength-success-message="Field Password is strong enough" minlength-error-message="Field Password is required at least 6 digits" valid-method="blur">
                                 </div>
 
                                 <hr>

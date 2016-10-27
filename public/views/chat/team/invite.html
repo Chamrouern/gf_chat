@@ -15,7 +15,7 @@
                           <div class="form-group">
                             <label class="col-sm-4 control-label" for="email">Friends Email:</label>
                             <div class="col-sm-8">
-                              <input id="email" type="email" placeholder="Email" class="form-control input-md" ng-model="sentMailCtrl.userEmail" validator="required,email">
+                              <input id="email" type="email" placeholder="Email" class="form-control input-md" ng-model="sentMailCtrl.userEmail" validator="required,email" email-success-message="Field Email is correct email" email-error-message="Field Email is not correct email" required-error-message="Field Email is required email">
                             </div>
                           </div>
                           <div class="form-group">
