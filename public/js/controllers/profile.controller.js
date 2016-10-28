@@ -7,7 +7,7 @@ app.controller('ProfileCtrl', function($state,Auth,Users,auth, profile,toaster) 
 					LastName: profile.LastName,
 					Address: profile.Address,
 					Gender: profile.Gender,
-			        displayName: profile.FirstName +" "+profile.LastName
+			        displayName: profile.FirstName+" "+profile.LastName
 		};
 		profileCtrl.updateProfile = function(isvalid){
 			if (isvalid) {

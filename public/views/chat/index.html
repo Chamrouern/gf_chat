@@ -18,7 +18,7 @@
                             <i class="material-icons ">group</i>&nbsp;
                             <a  title ="{{ teams.discription }}" ui-sref="teams.messages({teamsId: teams.$id})" ui-sref-active="selected" style="text-align: right;"> {{ teams.name }}</a>(<a href="" class="dropdown">{{ teamsCtrl.countMember(teams.member) }}</a>)
                             <span ng-if="teamsCtrl.Auth.uid == teams.member[teams.member.length - 1]">
-                                <i class="fa fa-trash" ng-click ="teamsCtrl.deleteTeam(teams.$id)" style="color:red; cursor:pointer;"></i>|<i class="fa fa-edit" ng-click="teamsCtrl.editTeam(teams.$id)" style="color:blue; cursor:pointer;"></i>
+                                <i class="fa fa-trash" ng-click ="teamsCtrl.deleteTeam(teams.$id)" style="color:red; cursor:pointer;"></i><!-- |<i class="fa fa-edit" ng-click="teamsCtrl.editTeam(teams.$id)" style="color:blue; cursor:pointer;"></i> -->
                             </span>
                       </span> 
                   </li>

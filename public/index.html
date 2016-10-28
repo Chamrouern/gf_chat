@@ -8,7 +8,6 @@
        <link rel="stylesheet" type="text/css" href="manifest.json">
        <script type="text/javascript" src="sw.js"></script>
        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css"/>
-       <script type="text/javascript" src="js/services/notify.js"></script>
        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
        <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
        <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
@@ -55,7 +54,7 @@
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation">
               <a class="mdl-navigation__link" href=""  ng-show="firebaseUser">
-               <div ng-show="firebaseUser" class="list-head"><a title="Invite your firends !" ui-sref="teams.invite"><i class="fa fa-users fa-x2" aria-hidden="true" style="color:white;"></i></a></div>
+               <div ng-show="firebaseUser" class="list-head"><a title="Invite your firends !" ui-sref="teams.invite" style="color:white;">Invite &nbsp;<i class="fa fa-users fa-x2" aria-hidden="true"></i></a></div>
               </a>
               <div class="dropdown" ng-show="firebaseUser">
                 <a class="mdl-navigation__link">
